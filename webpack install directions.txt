@@ -188,3 +188,35 @@
     - is there a body element in that index.html?
     - is your css linked in the main.js file?
     - did you install something, and then never connect it in webpack.config.js?
+
+
+
+
+Sample code segments:
+
+1. Importing variables and functions into main.js:
+
+    main.js
+    ----------
+    import './styles.css';
+    import $ from 'jquery';
+
+    import {doSomeMath, didSomeMath} from "./buttonscript.js";
+
+
+    $(document).ready(function(){
+      $(".button").click(function(){
+        var x = doSomeMath(3,4);
+        console.log(x);
+        console.log(didSomeMath);
+      })
+
+    });
+
+    buttonscript.js
+    ----------
+    export function doSomeMath(a, b){
+      return a + b;
+    }
+
+    export var didSomeMath = doSomeMath(7,10);
